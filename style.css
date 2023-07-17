@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
+
+
+/* 
+
+---------- overriding user-agent styling ------------
+
+*/
+
+:root {
+
+    --primary-color: 234, 83, 83;
+    --primary-color-2: 69, 211, 211;
+    --primary-color-3: 252, 175, 74;
+    --primary-color-4: 84, 158, 242;
+
+    --neutral-color: 76, 78, 97;
+    --neutral-color-2: 163, 165, 174;
+    --neutral-color-3: 250, 250, 250;
+
+
+    box-sizing: inherit;
+    font-size: .9375em; /* sets the font size to 15px */
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    background-color: rgb(var(--neutral-color-3));
+    color: rgb(var(--neutral-color-2));
+
+    padding-block: 5.66667em 5.2em;
+}
+
+h1, h4 {
+    color: rgb(var(--neutral-color));
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 1.6rem;
+    letter-spacing: .17px;
+}
+
+h4 {
+    font-size: 1.33333rem;
+}
+
+@media only screen and (min-width: 72em) {
+
+    body {
+        padding-block: 5.333333em;
+    }
+
+    h1 {
+        font-size: 2.4em; 
+        letter-spacing: .25px;
+    }
+}
+
+/* 
+
+---------- header styling --------------
+
+*/
+
+
+header {
+    width: 100vw;
+}
+
+header > div {
+    width: calc(100% - 4.266667em);
+    max-width: 37em;
+    margin: auto;
+    text-align: center;
+
+    margin-block: 0 5.0666667em;
+}
+
+header h1 {
+    margin-block: 0;
+}
+
+header .thin-text {
+    font-weight: 200;
+}
+
+header p {
+    margin-block: 1.0666667rem 0;
+    letter-spacing: .1px;
+}
+
+
+@media only screen and (min-width: 48em) {
+
+    header > div {
+        margin-block: 0 4.26666667em;
+    }
+
+    .features {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, auto);
+
+        gap: 2em;
+    }
+
+    .feature-1 {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+    }
+
+    .feature-2 {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+    }
+
+    .feature-3 {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+    }
+}
+
+
+@media only screen and (min-width: 72em) {
+
+    .features {
+        grid-template-columns: 1fr minmax(auto, 23.33333em) 1fr;
+        align-items: center;
+    }
+
+    .feature-1 {
+        grid-row: 1 / 3;
+    }
+
+    .feature-2 {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+    }
+
+    .feature-3 {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+    }
+
+    .feature-4 {
+        grid-column: 3 / 4;
+        grid-row: 1 / 3;
+    }
+    
+}
+
+/* 
+
+---------- card styling ----------
+
+*/
+
+
+.features .card:not(.calculator) {
+    margin-bottom: 1.66667em;
+}
+
+.card {
+    position: relative;
+    padding: 1.8em 1.8667em 1.8667em;
+    background-color: rgb(255, 255, 255);
+    width: calc(100% - 4.266667em); 
+    max-width: 23.33333em;
+    margin-inline: auto;
+
+    border-radius: .533333em;
+    box-shadow: 0 1em 2em -.733333em rgba(131, 166, 210, 0.50);
+    overflow: hidden;
+}
+
+
+/* 
+
+----- setting variable for line color for various cards -----
+
+*/
+
+.supervisor { --line-color: var(--primary-color-2); }
+.team-builder { --line-color: var(--primary-color); }
+.karma { --line-color: var(--primary-color-3); }
+.calculator { --line-color: var(--primary-color-4); }
+
+
+.card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: .236667em;
+
+    background-color: rgb(var(--line-color));
+}
+
+.card h4 {
+    margin-block: 0;
+}
+
+.card p {
+    margin-block: .0769em 2.539em;
+    font-size: 0.866667rem;
+    line-height: 1.77;
+}
+
+.card figure {
+    display: block;
+    width: 3.8em;
+    height: 3.8em;
+    padding-inline: 0;
+    margin: 0;
+    margin-left: auto;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+@media only screen and (min-width: 48em) {
+
+    .features .card:not(.calculator) {
+        margin-bottom: 0;
+    }
+
+    .card {
+        margin-inline: 0;
+    }
+
+    .card p {
+        margin-block: .462em 3.077em;
+    }
+
+    .supervisor, .karma {
+        margin-inline: auto 0;
+    }
+}
+
+@media only screen and (min-width: 72em) {
+    .karma {
+        margin-inline: 0;
+    }
+
+    .karma, .team-builder {
+        width: 100%;
+    }
+}
+
+
+.attribution {
+    position: relative;
+    width: 100%;
+    padding: 2em 3em 0;
+    font-family: inherit;
+    color: rgb(var(--color2));
+}
+
+.attribution a,
+.attribution span {
+    color: rgb(var(--color-hover));
+}
